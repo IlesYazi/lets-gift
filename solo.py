@@ -1,4 +1,6 @@
 branche1 = [
+    {"objet":"GAGNER", "femme":True, "enfant":True, "jouet":True},
+
     {"objet":"drone", "femme":False, "enfant":False, "jouet":True},
 
     {"objet":"voiture télécomandé", "femme":False, "enfant":True, "jouet":False},
@@ -27,29 +29,27 @@ branche1 = [
 
 
 def rep_question(reponse, key,question_pose):
-
-    question=None
-    if reponse == "oui" or reponse=="o":
+    if reponse == "oui" or "o":
         question=True
-    if reponse =="non" or reponse=="n":
+    if reponse =="non" or "n":
         question=False
     else:
         print("erreur vous n'avez pas repondu par oui ou non")
-    
+        quit()
+
     branche2 = []
     for i in branche1:
         if i[key] !=question:
             branche2.append(i)
 
     for j in branche2:
-        branche1.remove(j)   
- 
-##    print(branche1.keys)
-##    print("_____________________________________")
-    if question_pose==3:
-        print(branche1["objet"])
+        branche1.remove(j) 
 
-print ("Repondre par oui ou non en toute lettre")
+    if question_pose==2: #en fonction du nombre de question
+        print(branche1)
+
+
+print ("\n /!\ Repondre par oui ou par non en toute lettre /!\ \n")
 
 #Question 1
 question = input("Le cadeau que tu recherches est pour une personne de sexe féminin ?")
@@ -60,5 +60,6 @@ question = input("Le cadeau que tu recherches est pour un(e) enfant ?")
 rep_question(question,"enfant",2)
 
 #Question 3
-question = input("Le cadeau que tu recherches est un jouet ?")
-rep_question(question,"enfant",3)
+#question = input("Le cadeau que tu recherches est un jouet ?")
+#rep_question(question,"enfant",3)
+
