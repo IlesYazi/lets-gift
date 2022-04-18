@@ -19,8 +19,8 @@ branche1 = [
 
     {"objet":"rouge à levre", "femme":True, "enfant":False, "jouet":False, "test":True},
 
-    {"objet":"crampons de foot", "femme":False, "enfant":True, "jouet":False, "test":True},
-    {"objet":"crampons de foot", "femme":True, "enfant":True, "jouet":False, "test":True},
+    {"objet":"crampons de foot", "femme":None, "enfant":True, "jouet":False, "test":True},
+    #{"objet":"crampons de foot", "femme":True, "enfant":True, "jouet":False, "test":True},     
 
     {"objet":"cliché", "femme":False, "enfant":False, "jouet":True, "test":True},
 
@@ -29,12 +29,14 @@ branche1 = [
 
 
 def rep_question(reponse, key,tableau:list):
-
-    if reponse == "oui" or reponse == "non":
+    question=None
+    if reponse == "oui" or reponse == "non" or reponse == "jsp":
         if reponse == "oui":
             question=True
-        else:
+        elif reponse == "non":
             question=False
+        else:
+            question=None
     else:
         print("\n \t\t/!\ ERREUR /!\ \n /!\ Repondre par oui ou par non en toute lettre /!\ \n")
         quit()
