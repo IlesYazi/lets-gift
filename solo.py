@@ -5,7 +5,7 @@ branche1 = [
 
     {"objet":"voiture télécomandé", "femme":False, "enfant":True, "jouet":False, "test":True},
 
-    {"objet":"poupé", "femme":True, "enfant":True, "jouet":True, "test":True},
+    {"objet":"poupé", "femme":True, "enfant":True, "jouet":True, "test":False},
 
     {"objet":"playstation", "femme":False, "enfant":False, "jouet":False, "test":True},
 
@@ -30,11 +30,15 @@ branche1 = [
 
 def rep_question(reponse, key,tableau:list):
 
-    if reponse == "oui":
-        question=True
+    if reponse == "oui" or reponse == "non":
+        if reponse == "oui":
+            question=True
+        else:
+            question=False
     else:
-        question=False
-
+        print("\n \t\t/!\ ERREUR /!\ \n /!\ Repondre par oui ou par non en toute lettre /!\ \n")
+        quit()
+    
     branche2 = []
     for i in tableau:
         if i[key] !=question:
