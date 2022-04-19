@@ -108,13 +108,14 @@ msg.pack()
 btn1 = Button(
   gui,
   text = "Oui",
-  command = rep_question(reponse,"femme",branche1), 
+  command = print(rep_question("oui","femme",branche1)), 
   padx = 8,
   pady = 5
 )
 btn2 = Button(
   gui, 
   text = "Non",
+  command = print(rep_question("non","femme",branche1)),
   padx = 8,
   pady = 5
 )
