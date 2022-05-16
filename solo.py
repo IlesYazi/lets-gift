@@ -1,8 +1,4 @@
-from tkinter import * 
-from tkinter import messagebox
-import tkinter
-
-
+import random
 
 ########## Base de donnees ##########
 
@@ -27,8 +23,9 @@ branche1 = [
 
     {"objet":"rouge à levre", "femme":True, "enfant":False, "jouet":False, "test":True},
 
-    {"objet":"crampons de foot", "femme":None, "enfant":True, "jouet":False, "test":True},
-    #{"objet":"crampons de foot", "femme":True, "enfant":True, "jouet":False, "test":True},     
+    #{"objet":"crampons de foot", "femme":None, "enfant":True, "jouet":False, "test":True},
+    {"objet":"crampons de foot", "femme":False, "enfant":True, "jouet":False, "test":True},
+    {"objet":"crampons de foot", "femme":True, "enfant":True, "jouet":False, "test":True},     
 
     {"objet":"cliché", "femme":False, "enfant":False, "jouet":True, "test":True},
 
@@ -46,7 +43,7 @@ def rep_question(reponse, key,tableau:list):
         else: ## pour le "jsp"
             question=None
     else:
-        print("\n \t\t/!\ ERREUR /!\ \n /!\ Repondre par oui ou par non en toute lettre /!\ \n")
+        print("\n \t\t/!\ ERREUR /!\ \n /!\ Repondre par oui ou par non ou par jsp en toute lettre /!\ \n")
         #input(reponse)  
     
     branche2 = []
@@ -63,63 +60,48 @@ def rep_question(reponse, key,tableau:list):
 
 ########## Questions ##########
 
+
+def pose_question(key,tableau:list, a:int, b:int):
+    question = 0
+    for i in range(10):
+        random.randint(a, b)
+        
+
+    return question
+
+
+
+
 print ("\n /!\ Repondre par oui ou par non en toute lettre /!\ \n")
 
 #Question 1
 reponse = input("Le cadeau que tu recherches est pour une personne de sexe féminin ?")
+
 question1= rep_question(reponse,"femme",branche1)
+
 rep_question(reponse,"femme",branche1)
+
 print(question1)
+
 
 #Question 2
 print("\n")
-#reponse = input("Le cadeau que tu recherches est pour un(e) enfant ?")
+reponse = input("Le cadeau que tu recherches est pour un(e) enfant ?")
 question2=rep_question(reponse,"enfant",question1)
 rep_question(reponse,"enfant",question1)
 print(question2)
 
 #Question 3
 print("\n")
-#reponse = input("Le cadeau que tu recherches est un jouet ?")
+reponse = input("Le cadeau que tu recherches est un jouet ?")
 question3=rep_question(reponse,"jouet",question2)
 rep_question(reponse,"jouet",question2)
 print(question3)
 
 #Question 4
 print("\n")
-#reponse = input("Fin ?")
+reponse = input("Fin ?")
 question4=rep_question(reponse,"test",question3)
 rep_question(reponse,"test",question3)
 print(question4)
 
-
-
-########## Interface graphique ##########
-
-gui = Tk()
-gui.geometry("200x150")
-
-var = StringVar()
-msg = Message( gui, textvariable=var)
-var.set("Le cadeau que tu recherches est pour une personne de sexe féminin ?")
-msg.pack()
-
-
-btn1 = Button(
-  gui,
-  text = "Oui",
-  command = print(rep_question("oui","femme",branche1)), 
-  padx = 8,
-  pady = 5
-)
-btn2 = Button(
-  gui, 
-  text = "Non",
-  command = print(rep_question("non","femme",branche1)),
-  padx = 8,
-  pady = 5
-)
-
-btn1.pack(side = LEFT)
-btn2.pack(side = RIGHT)
-gui.mainloop()
