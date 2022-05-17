@@ -65,8 +65,6 @@ def pose_question(key,tableau:list, a:int, b:int):
     question = 0
     for i in range(10):
         random.randint(a, b)
-        
-
     return question
 
 
